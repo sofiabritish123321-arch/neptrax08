@@ -264,25 +264,32 @@ export default function Services({ onNavigate }: ServicesProps) {
       </section>
 
       {/* Services Showcase Section */}
-      <section id="services-showcase-2" aria-label="Services showcase" className="relative bg-[#0b0b0b] py-[120px]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <section id="services-showcase-2" aria-label="Services showcase" className="relative bg-[#0b0b0b] py-[120px] overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="floating-orb floating-orb-1"></div>
+          <div className="floating-orb floating-orb-2"></div>
+          <div className="floating-orb floating-orb-3"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
           {/* First Row - Featured Service */}
-          <div className="reveal-up mb-32">
+          <div className="reveal-up showcase-row mb-32">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left Column - Text */}
-              <div className="order-2 lg:order-1">
-                <div className="badge-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#222222] text-[#d7d7d7] text-xs uppercase tracking-wider mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00c2b3]"></span>
+              <div className="order-2 lg:order-1 showcase-text">
+                <div className="badge-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#222222] text-[#d7d7d7] text-xs uppercase tracking-wider mb-6 badge-pulse">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00c2b3] badge-dot-pulse"></span>
                   Featured Service
                 </div>
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight gradient-text-reveal">
                   Website Development
                 </h2>
-                <p className="text-lg md:text-xl text-[#bdbdbd] mb-8 leading-relaxed">
+                <p className="text-lg md:text-xl text-[#bdbdbd] mb-8 leading-relaxed text-fade-in">
                   Developing digital experiences that are as beautiful as they are functional.
                 </p>
                 <button
-                  className="cta-outline group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-[1.5px] border-white/12 text-white transition-all duration-300 hover:bg-white/95 hover:text-[#0b0b0b] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.6)] focus:outline-none focus:ring-2 focus:ring-[#00c2b3] focus:ring-offset-4 focus:ring-offset-[#0b0b0b]"
+                  className="cta-outline group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-[1.5px] border-white/12 text-white transition-all duration-300 hover:bg-white/95 hover:text-[#0b0b0b] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.6)] focus:outline-none focus:ring-2 focus:ring-[#00c2b3] focus:ring-offset-4 focus:ring-offset-[#0b0b0b] cta-enhanced"
                   onClick={() => onNavigate('portfolio')}
                 >
                   <span>Explore Projects</span>
@@ -292,52 +299,81 @@ export default function Services({ onNavigate }: ServicesProps) {
 
               {/* Right Column - Visual */}
               <div className="services-visual order-1 lg:order-2">
-                <div className="relative">
-                  <img
-                    src="public/portfolio/wildebrands.png"
-                    alt="Website development demo"
-                    className="w-full h-[500px] rounded-3xl border-2 border-[#141414] shadow-[0_20px_60px_rgba(0,0,0,0.5)] object-cover transition-transform duration-500"
-                  />
+                <div className="relative showcase-image-wrapper">
+                  {/* Glow effect layers */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 image-glow"></div>
+
+                  {/* Main image container with glass effect */}
+                  <div className="relative overflow-hidden rounded-3xl glass-card">
+                    <img
+                      src="public/portfolio/wildebrands.png"
+                      alt="Website development demo"
+                      className="w-full h-[500px] object-cover image-float"
+                    />
+                    {/* Overlay gradient animation */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 via-transparent to-blue-500/10 opacity-0 hover:opacity-100 transition-opacity duration-700"></div>
+
+                    {/* Shimmer effect on hover */}
+                    <div className="shimmer-overlay"></div>
+                  </div>
+
+                  {/* Decorative corner accents */}
+                  <div className="corner-accent corner-accent-tl"></div>
+                  <div className="corner-accent corner-accent-br"></div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Second Row - Large Typographic Hero */}
-          <div className="reveal-up mb-32">
+          <div className="reveal-up mb-32 typography-hero-section">
             <div className="relative max-w-5xl">
-              {/* Soft glow background */}
-              <div className="absolute -inset-8 bg-gradient-radial from-[#061e28]/22 via-transparent to-transparent rounded-full blur-3xl opacity-60 mix-blend-screen pointer-events-none"></div>
+              {/* Enhanced animated glow background */}
+              <div className="absolute -inset-8 bg-gradient-radial from-[#061e28]/22 via-transparent to-transparent rounded-full blur-3xl opacity-60 mix-blend-screen pointer-events-none glow-pulse"></div>
 
-              <h2 className="display-hero text-7xl md:text-7xl lg:text-7xl xl:text-6xl font-black text-white leading-[0.98] tracking-tight">
-                Simplify operations.<br />
-                Accelerate results.<br />
-                Reclaim your time for what<br />
-                truly grows your business.<br />
-                From no-code agility to custom<br />
-                development, we make workflows<br />
-                effortless and impactful.
+              {/* Additional animated accent lines */}
+              <div className="accent-line accent-line-1"></div>
+              <div className="accent-line accent-line-2"></div>
+
+              {/* Text with gradient animation and word reveal */}
+              <h2 className="display-hero text-7xl md:text-7xl lg:text-7xl xl:text-6xl font-black leading-[0.98] tracking-tight text-hero-animated">
+                <span className="text-line" style={{ animationDelay: '0.1s' }}>Simplify operations.</span><br />
+                <span className="text-line" style={{ animationDelay: '0.2s' }}>Accelerate results.</span><br />
+                <span className="text-line" style={{ animationDelay: '0.3s' }}>Reclaim your time for what</span><br />
+                <span className="text-line" style={{ animationDelay: '0.4s' }}>truly grows your business.</span><br />
+                <span className="text-line" style={{ animationDelay: '0.5s' }}>From no-code agility to custom</span><br />
+                <span className="text-line" style={{ animationDelay: '0.6s' }}>development, we make workflows</span><br />
+                <span className="text-line" style={{ animationDelay: '0.7s' }}>effortless and impactful.</span>
               </h2>
+
+              {/* Floating particles effect */}
+              <div className="hero-particles">
+                <div className="particle particle-1"></div>
+                <div className="particle particle-2"></div>
+                <div className="particle particle-3"></div>
+                <div className="particle particle-4"></div>
+                <div className="particle particle-5"></div>
+              </div>
             </div>
           </div>
 
           {/* Third Row - Newly Added */}
-          <div className="reveal-up">
+          <div className="reveal-up showcase-row">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Left Column - Text */}
-              <div>
-                <div className="badge-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#222222] text-[#d7d7d7] text-xs uppercase tracking-wider mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00c2b3]"></span>
+              <div className="showcase-text">
+                <div className="badge-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#222222] text-[#d7d7d7] text-xs uppercase tracking-wider mb-6 badge-pulse badge-new">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00c2b3] badge-dot-pulse"></span>
                   Newly Added
                 </div>
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight gradient-text-reveal">
                   AI Chatbots Development
                 </h2>
-                <p className="text-lg md:text-xl text-[#bdbdbd] mb-8 leading-relaxed">
+                <p className="text-lg md:text-xl text-[#bdbdbd] mb-8 leading-relaxed text-fade-in">
                   Your Dedicated AI Support Bot, Built Just for Coaches
                 </p>
                 <button
-                  className="cta-outline group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-[1.5px] border-white/12 text-white transition-all duration-300 hover:bg-white/95 hover:text-[#0b0b0b] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.6)] focus:outline-none focus:ring-2 focus:ring-[#00c2b3] focus:ring-offset-4 focus:ring-offset-[#0b0b0b]"
+                  className="cta-outline group inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-[1.5px] border-white/12 text-white transition-all duration-300 hover:bg-white/95 hover:text-[#0b0b0b] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.6)] focus:outline-none focus:ring-2 focus:ring-[#00c2b3] focus:ring-offset-4 focus:ring-offset-[#0b0b0b] cta-enhanced"
                   onClick={() => onNavigate('portfolio')}
                 >
                   <span>Explore Projects</span>
@@ -347,12 +383,33 @@ export default function Services({ onNavigate }: ServicesProps) {
 
               {/* Right Column - Visual */}
               <div className="services-visual">
-                <div className="relative">
-                  <img
-                    src="public/portfolio/wildebrands.png"
-                    alt="AI Chatbot demo"
-                    className="w-full h-[500px] rounded-3xl border-2 border-[#141414] shadow-[0_20px_60px_rgba(0,0,0,0.5)] object-cover transition-transform duration-500"
-                  />
+                <div className="relative showcase-image-wrapper">
+                  {/* Glow effect layers */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 image-glow"></div>
+
+                  {/* Main image container with glass effect */}
+                  <div className="relative overflow-hidden rounded-3xl glass-card">
+                    <img
+                      src="public/portfolio/wildebrands.png"
+                      alt="AI Chatbot demo"
+                      className="w-full h-[500px] object-cover image-float"
+                    />
+                    {/* Overlay gradient animation */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 via-transparent to-cyan-500/10 opacity-0 hover:opacity-100 transition-opacity duration-700"></div>
+
+                    {/* Shimmer effect on hover */}
+                    <div className="shimmer-overlay"></div>
+
+                    {/* AI pulse indicator */}
+                    <div className="absolute top-6 right-6 flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-2 rounded-full ai-badge">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 ai-pulse"></span>
+                      <span className="text-white text-xs font-semibold">AI Powered</span>
+                    </div>
+                  </div>
+
+                  {/* Decorative corner accents */}
+                  <div className="corner-accent corner-accent-tl"></div>
+                  <div className="corner-accent corner-accent-br"></div>
                 </div>
               </div>
             </div>
@@ -360,8 +417,13 @@ export default function Services({ onNavigate }: ServicesProps) {
         </div>
       </section>
 
-      {/* Modern Animation Styles */}
+      {/* Enhanced Modern Animation Styles */}
       <style jsx>{`
+        /* ============================================
+           KEYFRAME ANIMATIONS
+           ============================================ */
+
+        /* Hero text glow animation */
         @keyframes glow-text {
           0%, 100% {
             text-shadow:
@@ -377,6 +439,7 @@ export default function Services({ onNavigate }: ServicesProps) {
           }
         }
 
+        /* Card entrance animation */
         @keyframes card-fade-in {
           from {
             opacity: 0;
@@ -387,6 +450,169 @@ export default function Services({ onNavigate }: ServicesProps) {
             transform: translateY(0) scale(1);
           }
         }
+
+        /* Floating orb animation for background */
+        @keyframes float-orb {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.15;
+          }
+          50% {
+            transform: translate(30px, -30px) scale(1.1);
+            opacity: 0.25;
+          }
+        }
+
+        /* Badge pulse animation */
+        @keyframes badge-pulse {
+          0%, 100% {
+            box-shadow: 0 0 0 0 rgba(0, 194, 179, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 0 8px rgba(0, 194, 179, 0);
+          }
+        }
+
+        /* Badge dot pulse */
+        @keyframes dot-pulse {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.3);
+            opacity: 0.7;
+          }
+        }
+
+        /* Shimmer effect for images */
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+          }
+          100% {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
+          }
+        }
+
+        /* Glow pulse for typography hero */
+        @keyframes glow-pulse {
+          0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.05);
+          }
+        }
+
+        /* Text line reveal animation */
+        @keyframes text-line-reveal {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+          }
+        }
+
+        /* Gradient text shimmer */
+        @keyframes gradient-shift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        /* Accent line animation */
+        @keyframes accent-line-draw {
+          from {
+            width: 0;
+            opacity: 0;
+          }
+          to {
+            width: 100%;
+            opacity: 1;
+          }
+        }
+
+        /* Floating particle animation */
+        @keyframes particle-float {
+          0%, 100% {
+            transform: translate(0, 0);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translate(20px, -20px);
+            opacity: 0.6;
+          }
+          50% {
+            transform: translate(40px, 0);
+            opacity: 0.3;
+          }
+          75% {
+            transform: translate(20px, 20px);
+            opacity: 0.6;
+          }
+        }
+
+        /* Image float animation */
+        @keyframes image-float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        /* Corner accent animation */
+        @keyframes corner-accent-fade {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 0.4;
+            transform: scale(1);
+          }
+        }
+
+        /* AI pulse animation */
+        @keyframes ai-pulse {
+          0%, 100% {
+            box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+            transform: scale(1.1);
+          }
+        }
+
+        /* CTA button enhanced animation */
+        @keyframes cta-pulse {
+          0%, 100% {
+            box-shadow: 0 0 0 0 rgba(0, 194, 179, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 0 10px rgba(0, 194, 179, 0);
+          }
+        }
+
+        /* ============================================
+           BASE STYLES & UTILITIES
+           ============================================ */
 
         .animate-glow-text {
           animation: glow-text 3s ease-in-out infinite;
@@ -421,21 +647,314 @@ export default function Services({ onNavigate }: ServicesProps) {
           transform: translateY(0);
         }
 
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-up {
-            transform: none;
-            opacity: 1;
-            transition: none;
-          }
+        /* ============================================
+           FLOATING BACKGROUND ORBS
+           ============================================ */
+
+        .floating-orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(60px);
+          pointer-events: none;
         }
 
-        /* Badge styles */
+        .floating-orb-1 {
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+          top: 10%;
+          right: 10%;
+          animation: float-orb 20s ease-in-out infinite;
+        }
+
+        .floating-orb-2 {
+          width: 400px;
+          height: 400px;
+          background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+          bottom: 20%;
+          left: 5%;
+          animation: float-orb 25s ease-in-out infinite 5s;
+        }
+
+        .floating-orb-3 {
+          width: 250px;
+          height: 250px;
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+          top: 50%;
+          left: 50%;
+          animation: float-orb 18s ease-in-out infinite 10s;
+        }
+
+        /* ============================================
+           SHOWCASE ROW ANIMATIONS
+           ============================================ */
+
+        .showcase-row.in-view .showcase-text {
+          animation: text-line-reveal 0.8s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+        }
+
+        .showcase-row.in-view .showcase-image-wrapper {
+          animation: text-line-reveal 1s cubic-bezier(0.2, 0.9, 0.2, 1) 0.3s forwards;
+        }
+
+        /* ============================================
+           BADGE ANIMATIONS
+           ============================================ */
+
         .badge-pill {
           font-weight: 600;
           letter-spacing: 0.05em;
+          position: relative;
         }
 
-        /* Display hero typography */
+        .badge-pulse {
+          animation: badge-pulse 2s ease-in-out infinite;
+        }
+
+        .badge-dot-pulse {
+          animation: dot-pulse 1.5s ease-in-out infinite;
+        }
+
+        .badge-new {
+          background: linear-gradient(135deg, rgba(0, 194, 179, 0.2) 0%, rgba(52, 211, 153, 0.2) 100%);
+          border: 1px solid rgba(0, 194, 179, 0.3);
+        }
+
+        /* ============================================
+           TEXT ANIMATIONS
+           ============================================ */
+
+        .gradient-text-reveal {
+          background: linear-gradient(90deg, #ffffff 0%, #f0f9ff 50%, #ffffff 100%);
+          background-size: 200% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          animation: gradient-shift 3s ease-in-out infinite;
+        }
+
+        .text-fade-in {
+          opacity: 0;
+          animation: text-line-reveal 0.8s cubic-bezier(0.2, 0.9, 0.2, 1) 0.4s forwards;
+        }
+
+        /* ============================================
+           TYPOGRAPHY HERO SECTION
+           ============================================ */
+
+        .typography-hero-section .glow-pulse {
+          animation: glow-pulse 4s ease-in-out infinite;
+        }
+
+        .text-hero-animated {
+          position: relative;
+        }
+
+        .text-line {
+          display: inline-block;
+          opacity: 0;
+        }
+
+        .typography-hero-section.in-view .text-line {
+          animation: text-line-reveal 0.8s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+        }
+
+        /* Accent lines for typography section */
+        .accent-line {
+          position: absolute;
+          height: 2px;
+          background: linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.6) 50%, transparent 100%);
+          opacity: 0;
+        }
+
+        .accent-line-1 {
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+
+        .accent-line-2 {
+          bottom: 0;
+          right: 0;
+          width: 100%;
+        }
+
+        .typography-hero-section.in-view .accent-line {
+          animation: accent-line-draw 1.5s cubic-bezier(0.2, 0.9, 0.2, 1) 0.5s forwards;
+        }
+
+        /* Floating particles */
+        .hero-particles {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          overflow: hidden;
+        }
+
+        .particle {
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 70%);
+          border-radius: 50%;
+          opacity: 0;
+        }
+
+        .typography-hero-section.in-view .particle {
+          animation: particle-float 15s ease-in-out infinite;
+        }
+
+        .particle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle-2 { top: 40%; right: 15%; animation-delay: 2s; }
+        .particle-3 { bottom: 30%; left: 20%; animation-delay: 4s; }
+        .particle-4 { top: 60%; right: 25%; animation-delay: 6s; }
+        .particle-5 { bottom: 15%; right: 10%; animation-delay: 8s; }
+
+        /* ============================================
+           IMAGE & VISUAL EFFECTS
+           ============================================ */
+
+        .showcase-image-wrapper {
+          position: relative;
+          isolation: isolate;
+        }
+
+        /* Glass card effect with backdrop blur */
+        .glass-card {
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(10px);
+          border: 2px solid rgba(255, 255, 255, 0.05);
+          box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transition: all 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+        }
+
+        .glass-card:hover {
+          border-color: rgba(6, 182, 212, 0.3);
+          box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.6),
+            0 0 40px rgba(6, 182, 212, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        /* Image floating animation */
+        .image-float {
+          animation: image-float 6s ease-in-out infinite;
+          transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1);
+        }
+
+        .showcase-image-wrapper:hover .image-float {
+          animation-play-state: paused;
+        }
+
+        /* Shimmer overlay effect */
+        .shimmer-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            110deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(255, 255, 255, 0.15) 50%,
+            transparent 60%,
+            transparent 100%
+          );
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+          transition: opacity 0.3s;
+          pointer-events: none;
+        }
+
+        .glass-card:hover .shimmer-overlay {
+          animation: shimmer 2s ease-in-out;
+        }
+
+        /* Corner accent decorations */
+        .corner-accent {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .corner-accent-tl {
+          top: -10px;
+          left: -10px;
+          border-top: 2px solid rgba(6, 182, 212, 0.6);
+          border-left: 2px solid rgba(6, 182, 212, 0.6);
+          border-radius: 8px 0 0 0;
+        }
+
+        .corner-accent-br {
+          bottom: -10px;
+          right: -10px;
+          border-bottom: 2px solid rgba(6, 182, 212, 0.6);
+          border-right: 2px solid rgba(6, 182, 212, 0.6);
+          border-radius: 0 0 8px 0;
+        }
+
+        .showcase-image-wrapper:hover .corner-accent {
+          animation: corner-accent-fade 0.5s ease-out forwards;
+        }
+
+        /* Image glow effect */
+        .image-glow {
+          transition: opacity 0.7s ease-out;
+        }
+
+        .showcase-image-wrapper:hover .image-glow {
+          opacity: 1 !important;
+        }
+
+        /* ============================================
+           AI BADGE EFFECTS
+           ============================================ */
+
+        .ai-badge {
+          opacity: 0;
+          transform: translateY(-10px);
+          transition: all 0.5s cubic-bezier(0.2, 0.9, 0.2, 1);
+        }
+
+        .glass-card:hover .ai-badge {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .ai-pulse {
+          animation: ai-pulse 2s ease-in-out infinite;
+        }
+
+        /* ============================================
+           CTA BUTTON ENHANCEMENTS
+           ============================================ */
+
+        .cta-enhanced {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .cta-enhanced::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .cta-enhanced:hover::before {
+          opacity: 1;
+        }
+
+        .cta-enhanced:active {
+          animation: cta-pulse 0.6s ease-out;
+        }
+
+        /* ============================================
+           DISPLAY HERO TYPOGRAPHY
+           ============================================ */
+
         .display-hero {
           word-break: keep-all;
         }
@@ -448,8 +967,38 @@ export default function Services({ onNavigate }: ServicesProps) {
         /* Services visual hover effects */
         .services-visual img {
           cursor: pointer;
-          transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1);
         }
+
+        /* ============================================
+           ACCESSIBILITY - REDUCED MOTION
+           ============================================ */
+
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+
+          .reveal-up {
+            transform: none;
+            opacity: 1;
+            transition: none;
+          }
+
+          .floating-orb,
+          .particle,
+          .image-float,
+          .shimmer-overlay {
+            animation: none !important;
+          }
+        }
+
+        /* ============================================
+           RESPONSIVE BREAKPOINTS
+           ============================================ */
 
         @media (max-width: 1024px) {
           .grid {
@@ -460,6 +1009,14 @@ export default function Services({ onNavigate }: ServicesProps) {
             font-size: 3rem;
             line-height: 1.1;
           }
+
+          .floating-orb {
+            opacity: 0.5;
+          }
+
+          .floating-orb-1 { width: 200px; height: 200px; }
+          .floating-orb-2 { width: 250px; height: 250px; }
+          .floating-orb-3 { width: 150px; height: 150px; }
         }
 
         @media (max-width: 640px) {
@@ -479,6 +1036,22 @@ export default function Services({ onNavigate }: ServicesProps) {
 
           .reveal-up {
             margin-bottom: 60px !important;
+          }
+
+          .floating-orb {
+            display: none;
+          }
+
+          .hero-particles {
+            display: none;
+          }
+
+          .glass-card {
+            backdrop-filter: blur(5px);
+          }
+
+          .corner-accent {
+            display: none;
           }
         }
 
